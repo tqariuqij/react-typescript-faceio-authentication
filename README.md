@@ -1,0 +1,1 @@
+# react-typescript-faceio-authentication
