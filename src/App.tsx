@@ -1,14 +1,20 @@
-import SignupForm from './components/SignupForm';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import StateProvider from './context/StateProvider';
+import Home from './pages/Home';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <div className='min-h-screen flex flex-col '>
-      <h1 className='text-3xl font-bold text-yellow-600 flex justify-center items-center'>
-        FaceIO authentication using react and typescript
-      </h1>
-
-      <SignupForm />
-    </div>
+    <StateProvider>
+      <div className='min-h-screen flex flex-col justify-center items-center'>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='signup' element={<SignUp />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </StateProvider>
   );
 }
 
